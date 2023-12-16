@@ -6,6 +6,8 @@ import com.bloomtech.socialfeed.observerpattern.OUserFeed;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.bloomtech.socialfeed.App.sourceFeed;
+
 public class User {
     private String username;
     private String email;
@@ -18,7 +20,8 @@ public class User {
 
     public User() {
         following = new ArrayList<>();
-        userFeed = new OUserFeed(this);
+        userFeed = new OUserFeed(this, sourceFeed);
+        sourceFeed.attach(userFeed);
     }
 
     public String getUsername() {
