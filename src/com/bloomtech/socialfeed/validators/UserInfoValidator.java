@@ -20,21 +20,15 @@ public class UserInfoValidator implements Validator {
     }
 
     private boolean isValidPassword(String password) {
-        //TODO: validate password contains at least 8 characters, an uppercase, and a lowercase letter.
+        //TODO: validate password contains at least 8 characters, an uppercase, a lowercase letter, and a number.
         //valid symbols include: !@#$%^&*
-        String passwordGeneralRegex = "[A-Za-z!@#\\$\\%\\^&\\*]{8,}";
-        String passwordOneUppercaseRegex = "[A-Z]";
-        String passwordOneLowercaseRegex = "[a-z]";
+        String passwordGeneralRegex = "(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])[A-Za-z0-9!@#\\$\\%\\^&\\*]{8,}";
 
         Pattern passwordGeneralPattern = Pattern.compile(passwordGeneralRegex);
-        Pattern passwordOneUppercasePattern = Pattern.compile(passwordOneUppercaseRegex);
-        Pattern passwordOneLowercasePattern = Pattern.compile(passwordOneLowercaseRegex);
 
         Matcher passwordGeneralMatcher = passwordGeneralPattern.matcher(password);
-        Matcher passwordOneUppercaseMatcher = passwordOneUppercasePattern.matcher(password);
-        Matcher passwordOneLowercaseMatcher = passwordOneLowercasePattern.matcher(password);
 
-        return passwordGeneralMatcher.matches() && passwordOneUppercaseMatcher.find() && passwordOneLowercaseMatcher.find();
+        return passwordGeneralMatcher.matches();
     }
 
     @Override
