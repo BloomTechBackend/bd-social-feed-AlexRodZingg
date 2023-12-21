@@ -1,0 +1,17 @@
+[
+  {
+    "username": "Leader",
+    "postedon": "2023-12-21T16:12:41.582106300",
+    "body": "Welcome everyone!"
+  },
+  {
+    "username": "Follower",
+    "postedon": "2023-12-21T16:12:41.583530600",
+    "body": "I am so excited to hear everything leader has to say!"
+  },
+  {
+    "username": "Loner",
+    "postedon": "2023-12-21T16:12:41.584531700",
+    "body": "I am not interested in what anyone has to say but myself"
+  }
+]
